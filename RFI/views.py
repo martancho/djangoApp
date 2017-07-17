@@ -18,7 +18,7 @@ def email(request):
 			instance.full_name = "Martin"
 		instance.save()
 		context={
-			"title: Thank you"
+			"title": "Thank you"
 		}	
 	return render(request, "RFI/email.html", context)
 
