@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^$', 'RFI.views.email', name='email'),
     url(r'', include('RFI.urls')),
 ]

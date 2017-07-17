@@ -26,7 +26,15 @@ SECRET_KEY = '_tm+_0en*)9@z%(ojbj3@f9s!acyvd*t@)prs#e3qx0&ix4f9h'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'martancho.pythonanywhere.com']
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'martancho@gmail.com'
+EMAIL_HOST_PASSWORD = 'nitramzelev'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
+"""
+If using gmail we'll need to unlock Captcha https://accounts.google.com/displayunlockcaptcha
+"""
 
 # Application definition
 
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
