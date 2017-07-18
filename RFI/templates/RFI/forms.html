@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<title>RFI template</title>
+</head>
+<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="row justify-content-md-center" style="background-color: #4289c1">
+				<div class="col col-lg-2">
+					<img src="../static/img/techMDlogo_m.png">
+				</div>
+				<div class="row">
+					<h2>TechMDinc</h2>
+					<h1>Request for information</h1>
+					<h1>For <input placeholder="project name" size="20"></h1>
+				</div>
+				
+			</div>			
+		</div>
+	</nav>
+<form method="POST" action="">{% csrf_token %}
+	{{form.as_p}}
+
+	<input type="submit" value="Submit"/>
+</form>

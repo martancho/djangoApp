@@ -26,6 +26,7 @@ SECRET_KEY = '_tm+_0en*)9@z%(ojbj3@f9s!acyvd*t@)prs#e3qx0&ix4f9h'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'martancho.pythonanywhere.com']
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'martancho@gmail.com'
 EMAIL_HOST_PASSWORD = 'nitramzelev'
@@ -128,3 +129,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
