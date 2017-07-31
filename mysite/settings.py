@@ -28,10 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'martancho.pythonanywhere.com']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'martancho@gmail.com'
-EMAIL_HOST_PASSWORD = 'nitramzelev'
+EMAIL_HOST_USER = 'martin.velez@techmdinc.com'
+EMAIL_HOST_PASSWORD = 'Techmd@123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'martin.velez@techmdinc.com'
+DEFAULT_TO_EMAIL = 'martin.velez@techmdinc.com'
+
 
 """
 If using gmail we'll need to unlock Captcha https://accounts.google.com/displayunlockcaptcha

@@ -1,0 +1,7 @@
+Hello {{user}},
+
+This is a django template test
+
+You have purchased: {{purchase}}
+
+Thanks

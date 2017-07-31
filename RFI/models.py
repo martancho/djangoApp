@@ -26,3 +26,27 @@ class SignUp(models.Model):
 
 	def __str__(self):
 		return self.email
+
+class Contact(models.Model):
+	project_name = models.CharField(max_length=200, null=True)
+	client_name = models.CharField(max_length=200, blank=True, null=True)
+	client_address = models.CharField(max_length=200, blank=True, null=True)
+	client_address2 = models.CharField(max_length=200, blank=True, null=True)
+	phone_number = models.CharField(max_length=200, null=True)
+	website = models.CharField(max_length=250, null=True)
+	today_date = models.DateTimeField(default = timezone.now)
+	rfi = models.CharField(max_length=6, null=True)
+	email = models.EmailField(max_length=254, null=True)
+	user = models.CharField(max_length=200, null = True)
+	info_requested = models.TextField(max_length=250, null=True)
+	description = models.TextField(max_length=500, null=True)
+	response = models.TextField(max_length=500, null=True)
+	user_signature = models.CharField(max_length=200, null=True)
+	client_signature = models.CharField(max_length=200, null=True)
+	user_date = models.DateTimeField(default=timezone.now)
+	client_date = models.DateTimeField(default=timezone.now)
+	def __str__(self):
+		return self.client_name 
+
+
+

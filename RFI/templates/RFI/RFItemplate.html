@@ -1,0 +1,129 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<title>RFI template</title>
+
+	<style type="text/css">
+	h1{
+		font-size: 35px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+	h2{
+		color: #b2b2b2;
+	}
+	h5{
+		color: #4289c1;
+		font-size: 25px;
+	}
+	input {
+		color: #000;
+		background-color: #b0c7df;
+	}
+	textarea{
+		font-size: 25px;
+		background-color: #b0c7df;
+	}
+	.client{
+		font-size: 25px;
+	}
+	</style>
+</head>
+
+<body lang="en">
+	<!--Top header-->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="row justify-content-md-center" style="background-color: #4289c1">
+				<div class="col col-lg-2">
+					<img src="../static/img/techMDlogo_m.png">
+				</div>
+				<div class="row">
+					<h2>TechMDinc</h2>
+					<h1>Request for information</h1>
+					<h1>For <input placeholder="project name" size="20"></h1>
+				</div>
+				
+			</div>			
+		</div>
+	</nav>
+	<!--Client info-->
+	<div class="container">
+		<form action="RFItemplate_submit" method="get" accept-charse="utf-8">
+			<div class="row">
+				<div class="col-md-6">
+					<h5>TechMDinc</h5>
+					<h5>801 South Main St. Building 101</h5>
+					<h5>Burbank, CA 91506</h5>	
+					<h5>v +1(818) 528-5800</h5>
+					<h5>www.techmdinc.com</h5>
+				</div>
+
+				<div class="col-md-6 client" id="client">
+					<input class="client" type="text" name="" value="" placeholder="Client Name" size="39"><br>
+					<input class="client" type="text" name="" value="" placeholder="Client Address 1" size="39"><br>
+					<input class="client" type="text" name="" value="" placeholder="Client Address 2" size="39"><br>
+					<input class="client" type="text" name="" value="" placeholder="Phone Number" size="39"><br>
+					<input class="client" type="text" name="" value="" placeholder="Website" size="39">
+				</div>
+			</div>
+
+			<svg width="1148" height="10">
+				<rect width="1148" height="10" style="fill:#4289b1;"/>
+			</svg>
+
+			<div class="row">
+				<div class="col-md-6">
+					<h5>Today's Date: <input type="text" name="" value="" placeholder=""></h5>
+					<h5>From: <input type="text" name="" value="" placeholder="" size="26"></h5>
+				</div>
+					<h5>RFI #: <input type="text" name="" value="" placeholder="" size="34" required="required"></h5>
+					<h5>To: <input type="text" name="" value="" placeholder="" size="37"></h5>
+				<div class="col-md-6">
+					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<h5>Information Requested:</h5>
+				</div>	
+				<div class="col-md-9">
+					<textarea name="information" cols="64" rows="5"></textarea>
+				</div>
+			</div>	
+			<h5>Description: </h5>
+			<textarea name="information" cols="87" rows="10"></textarea>
+
+			<div class="row">
+				<div class="col-md-8">
+					<h5>Signature: <input type="text" name="" value="" placeholder=""></h5>
+				</div>
+				<div class="col-md-4">
+					<h5>Date: <input type="date" name="" value="" placeholder=""></h5>
+				</div>
+			</div>
+			<br>
+
+			<h5>Response: </h5>
+			<textarea name="information" cols="87" rows="10"></textarea>
+
+			<div class="row">
+				<div class="col-md-8">
+					<h5>Signature: <input type="text" name="" value="" placeholder=""></h5>
+				</div>
+				<div class="col-md-4">
+					<h5>Date: <input type="date" name="" value="" placeholder=""></h5>
+				</div>
+			</div>
+			<br>
+		</form>
+	</div>
+
+</body>
+</html>

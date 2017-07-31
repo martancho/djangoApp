@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Post, SignUp
-from .forms import SignUpForm
+from .models import Post, SignUp, Contact
+from .forms import SignUpForm, ContactForm
 
 # Register your models here.
 class SignUpAdmin(admin.ModelAdmin):
@@ -9,5 +9,11 @@ class SignUpAdmin(admin.ModelAdmin):
 	#class Meta:
 	#	model = SignUp
 
-admin.site.register(SignUp, SignUpAdmin)		
+class ContactAdmin(admin.ModelAdmin):
+	list_display = ["__str__", "client_name", "client_address"]
+	form = ContactForm
+
+
+admin.site.register(SignUp, SignUpAdmin)
+admin.site.register(Contact)	
 admin.site.register(Post)

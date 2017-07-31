@@ -1,10 +1,79 @@
 from django import forms
-from .models import SignUp
+from .models import SignUp, Contact
 
-class ContactForm(forms.Form):
-	full_name = forms.CharField(required = False)
-	email = forms.EmailField()
-	message = forms.CharField()
+class ContactForm(forms.ModelForm):
+	class Meta:
+		model = Contact
+		fields = ['client_name', 'client_address','client_address2', 'email', 'info_requested', 'phone_number', 'website',
+		'project_name', 'rfi', 'user', 'description', 'response', 'user_signature', 'client_signature']
+	
+	project_name = forms.CharField(max_length=200, widget=forms.TextInput(
+		attrs={
+			'placeholder': 'Project Name'
+		}))
+	client_name = forms.CharField(required = False, widget=forms.TextInput(
+		attrs={
+			'placeholder': '[Client Name]',
+			'style' : 'width:100%'
+		}))
+	client_address = forms.CharField(max_length=200, widget=forms.TextInput(
+		attrs={
+			'placeholder': '[Client Address 1]',
+			'style' : 'width:100%',
+			'required' : True,
+
+		}))
+	client_address2 = forms.CharField(max_length=200, widget=forms.TextInput(
+		attrs={
+			'placeholder': '[Client Address 2]',
+			'style' : 'width:100%',
+		}))
+	phone_number = forms.CharField(max_length=200, widget=forms.TextInput(
+		attrs={
+			'placeholder' : '[Phone Number]',
+			'style' : 'width:100%'
+		}))
+	website = forms.CharField(max_length=200, widget=forms.TextInput(
+		attrs={
+			'placeholder' : '[Website]',
+			'style' : 'width:100%'
+		}))
+	today_date = forms.DateTimeField(widget=forms.DateTimeInput(
+		attrs={
+			'type' : 'date'
+		}))
+	rfi = forms.CharField(widget=forms.TextInput(
+		attrs={
+			'style' : 'width:300px'
+		}))
+	user = forms.CharField(widget=forms.TextInput())
+	email = forms.EmailField(widget=forms.TextInput(
+		attrs={
+			'placeholder' : '[Email]',
+			'id' : 'id_email'
+		}))
+	info_requested = forms.CharField(widget=forms.Textarea(
+		attrs={
+			'class' : 'textInfo'
+		}))
+	description = forms.CharField(widget=forms.Textarea(
+		attrs={
+			'style':'width:100%'
+		}))
+	response = forms.CharField(widget=forms.Textarea(
+		attrs={
+			'style':'width:100%'
+		}))
+	user_signature = forms.CharField(widget=forms.TextInput())
+	client_signature = forms.CharField(widget=forms.TextInput())
+	user_date = forms.DateTimeField(widget=forms.DateTimeInput(
+		attrs={
+			'type' : 'date'
+		}))
+	client_date = forms.DateTimeField(widget=forms.DateTimeInput(
+		attrs={
+			'type' : 'date'
+		}))
 
 class SignUpForm(forms.ModelForm):
 	class Meta:
