@@ -61,10 +61,7 @@ class ContactForm(forms.ModelForm):
 		}))
 	user_signature = forms.CharField(widget=forms.TextInput())
 	client_signature = forms.CharField(widget=forms.TextInput())
-	user_date = forms.DateTimeField(widget=forms.DateTimeInput(
-		attrs={
-			'type' : 'date'
-		}))
+	user_date = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today())
 	client_date = forms.DateTimeField(widget=forms.DateTimeInput(
 		attrs={
 			'type' : 'date'

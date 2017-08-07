@@ -35,7 +35,7 @@ class Contact(models.Model):
 	phone_number = models.CharField(max_length=200, null=True)
 	client = models.CharField(max_length=250, null=True)
 	today_date = models.DateTimeField(auto_now_add=True, auto_now=False)
-	rfi = models.CharField(max_length=6, null=True)
+	rfi = models.CharField(max_length=7, null=True)
 	email = models.EmailField(max_length=254, null=True)
 	user = models.CharField(max_length=200, null = True)
 	info_requested = models.TextField(max_length=250, null=True)
