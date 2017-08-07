@@ -35,25 +35,32 @@ def post_list(request):
 
 
 def contact(request):
+	title = 'Welcome'
 	form = ContactForm(request.POST or None)
+	context = {
+		"title" : title,
+		"form" : form
+	}
 	if form.is_valid():
 		instance = form.save(commit=False)
 		form_email = form.cleaned_data.get("email")
 		form_full_name = form.cleaned_data.get("client_name")
 		form_client_address = form.cleaned_data.get("client_address")
 		form_client_address2 = form.cleaned_data.get("client_address2")
-		form_message = form.cleaned_data.get("message")
+		form_message = form.cleaned_data.get("info_requested")
 		form_project_name = form.cleaned_data.get("project_name")
 		form_phone_number = form.cleaned_data.get("phone_number")
-		form_website = form.cleaned_data.get("website")
-		subject = "site contact form"
+		form_client = form.cleaned_data.get("client")
+		subject = "Tech MD inc contact form"
 		from_email = settings.EMAIL_HOST_USER
 		to_email = [from_email]
-		contact_message = "%s: %s via %s from %s"%(form_full_name, 
+		contact_message = "The client %s: asked about %s via %s from %s"%(form_full_name, 
 			form_message,
 			form_client_address, 
-			form_email)
-
+			from_email)
+		context={
+			"title":"Thank you"
+		}
 		send_mail(subject, 
 			contact_message, 
 			from_email, 
@@ -61,12 +68,8 @@ def contact(request):
 			fail_silently=False)
 
 		instance.save()	
-	# else:
-	# 	return render(request, "RFI/forms.html", {'form':form})
 			
-	context = {
-		"form" : form,
-	}
+	
 	return render(request, "RFI/forms.html", context)
 
 

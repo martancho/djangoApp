@@ -1,10 +1,12 @@
 from django import forms
 from .models import SignUp, Contact
+from django.forms.extras.widgets import SelectDateWidget
+import datetime
 
 class ContactForm(forms.ModelForm):
 	class Meta:
 		model = Contact
-		fields = ['client_name', 'client_address','client_address2', 'email', 'info_requested', 'phone_number', 'website',
+		fields = ['client_name', 'client_address','client_address2', 'email', 'info_requested', 'phone_number', 'client',
 		'project_name', 'rfi', 'user', 'description', 'response', 'user_signature', 'client_signature']
 	
 	project_name = forms.CharField(max_length=200, widget=forms.TextInput(
@@ -33,25 +35,18 @@ class ContactForm(forms.ModelForm):
 			'placeholder' : '[Phone Number]',
 			'style' : 'width:100%'
 		}))
-	website = forms.CharField(max_length=200, widget=forms.TextInput(
-		attrs={
-			'placeholder' : '[Website]',
-			'style' : 'width:100%'
-		}))
-	today_date = forms.DateTimeField(widget=forms.DateTimeInput(
-		attrs={
-			'type' : 'date'
-		}))
-	rfi = forms.CharField(widget=forms.TextInput(
-		attrs={
-			'style' : 'width:300px'
-		}))
-	user = forms.CharField(widget=forms.TextInput())
 	email = forms.EmailField(widget=forms.TextInput(
 		attrs={
 			'placeholder' : '[Email]',
-			'id' : 'id_email'
+			'style' : 'width:100%'
 		}))
+	today_date = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today())
+	rfi = forms.CharField(widget=forms.TextInput(
+		attrs={
+			'style' : 'width:60%'
+		}))
+	user = forms.CharField(widget=forms.TextInput())
+	client = forms.CharField(widget=forms.TextInput())
 	info_requested = forms.CharField(widget=forms.Textarea(
 		attrs={
 			'class' : 'textInfo'
